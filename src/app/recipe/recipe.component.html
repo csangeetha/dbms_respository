@@ -1,3 +1,74 @@
-<p>
-  recipe works!
-</p>
+<div class="container" style="margin-top: 7%">
+    <div class="card"  style="width:900px;margin-left:10%;" *ngIf="user.type=='chef'">
+
+        <div class="card-body mx-4">
+    <form (ngSubmit)="onSubmit()">
+        <p class="h4 text-center mb-4">Create Recipe</p>
+    
+        <!-- Material input text -->
+        <div class="md-form">
+            <i class="fa fa-sticky-note prefix grey-text"></i>
+            <input required  name="name" [(ngModel)]="data.name"type="text" id="materialFormRegisterNameEx" placeholder="Food Name" class="form-control">
+            <label for="materialFormRegisterNameEx"></label>
+        </div>
+    
+        <!-- Material input email -->
+        <div class="md-form">
+            <i class="fa fa-align-left prefix grey-text"></i>
+            <textarea name="ingredients" [(ngModel)]="data.ingredients" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Ingredients"  required> </textarea>
+            <label for="materialFormRegisterEmailEx"></label>
+        </div>
+    
+        <!-- Material input email -->
+        <div class="md-form">
+            <i class="fa fa-sort-numeric-up prefix grey-text"></i>
+            <input name="difficultyLevel" placeholder="Difficulty Level" [(ngModel)]="data.difficultyLevel" type="number" id="materialFormRegisterUsername" name="username" class="form-control" required minlength="4">
+            <label for="materialFormRegisterConfirmEx"></label>
+        </div>
+        <div class="md-form">
+            <i class="fa fa-sort-numeric-up prefix grey-text"></i>
+            <input name="cookTime" placeholder="Cook Time" [(ngModel)]="data.cookTime" type="number" id="materialFormRegisterUsername" name="username" class="form-control" required minlength="4">
+            <label for="materialFormRegisterConfirmEx"></label>
+        </div>
+    
+        <!-- Material input password -->
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" type="submit">Add Recipe</button>
+        </div>
+    </form>
+    </div>
+    </div>
+
+    <div class="card"  style="width:900px;margin-left:10%;" *ngIf="user.type=='owner'">
+
+        <div class="card-body mx-4">
+    <form (ngSubmit)="onSubmitRestaurant()">
+        <p class="h4 text-center mb-4">Create Restaurant</p>
+    
+        <!-- Material input text -->
+        <div class="md-form">
+            <i class="fa fa-sticky-note prefix grey-text"></i>
+            <input required  name="restaurantName" [(ngModel)]="dataRes.restaurantName"type="text" id="materialFormRegisterNameEx" placeholder="Restaurant" class="form-control">
+            <label for="materialFormRegisterNameEx"></label>
+        </div>
+    
+        <!-- Material input email -->
+        <div class="md-form">
+            <i class="fa fa-sort-numeric-up prefix grey-text"></i>
+            <input name="numberOfFavorites" placeholder="Number of favorites" [(ngModel)]="dataRes.numberOfFavorites" type="number" id="materialFormRegisterUsername" name="username" class="form-control" required minlength="4">
+            <label for="materialFormRegisterConfirmEx"></label>
+        </div>
+        <div class="md-form">
+            <i class="fa fa-sort-numeric-up prefix grey-text"></i>
+            <input name="rating" placeholder="Rating " [(ngModel)]="dataRes.rating" type="number" id="materialFormRegisterUsername" name="username" class="form-control" required minlength="4">
+            <label for="materialFormRegisterConfirmEx"></label>
+        </div>
+    
+        <!-- Material input password -->
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" type="submit">Add Restaurant</button>
+        </div>
+    </form>
+    </div>
+    </div>
+</div>

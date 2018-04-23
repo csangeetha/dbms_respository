@@ -1,4 +1,13 @@
-<div style="margin-top:7%;">
+<div class="container" style="margin-top:7%;">
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+                <input type="text" class="form-control" name="searchString" placeholder="Type to search..." [(ngModel)]="searchString">
+            </div>
+        </div>
+    </form>
+    
   <table class="table">
     <thead>
       <th>

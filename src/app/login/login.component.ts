@@ -34,6 +34,9 @@ export class LoginComponent implements OnInit {
     else if(this.data.type=='resturant owner'){
       this.loginService.loginOwner(this.data.username,this.data.password).subscribe(user => this.redirectLoginOwner(user));
     }
+    else if(this.data.type=='admin'){
+      this.loginService.loginAdmin(this.data.username,this.data.password).subscribe(user => this.redirectLoginAdmin(user));
+    }
     else{
       alert("choose valid type")
     }
@@ -66,6 +69,18 @@ export class LoginComponent implements OnInit {
   redirectLoginOwner(user){
     if(user.resturantOwnerId!=0){
       user.type='owner'
+      this.dataService.changeUser(user);
+      this.user=user;
+      this.router.navigate(['']);
+    }
+    else{
+      alert("invalid credentials")
+    }
+  }
+
+  redirectLoginAdmin(user){
+    if(user.userId!=0){
+      user.type='admin'
       this.dataService.changeUser(user);
       this.user=user;
       this.router.navigate(['']);

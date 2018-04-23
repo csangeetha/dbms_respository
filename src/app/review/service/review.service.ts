@@ -18,6 +18,6 @@ export class ReviewService {
   }
 
   deleteReview(reviewId:number){
-    return this.http.delete('http://104.156.224.24:8080/CS5200-project-new/rest/restaurant/deleterateReview/'+reviewId,this._headers)
+    return this.http.post('http://104.156.224.24:8080/CS5200-project-new/rest/restaurant/deleterateReview/'+reviewId,this._headers)
   }
 }

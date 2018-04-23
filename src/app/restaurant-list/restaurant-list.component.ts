@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DataService } from '../data.service';
 import {RestaurantListService } from './service/restaurant-list.service';
 @Component({
@@ -7,12 +7,27 @@ import {RestaurantListService } from './service/restaurant-list.service';
   styleUrls: ['./restaurant-list.component.scss'],
   providers:[RestaurantListService]
 })
+
 export class RestaurantListComponent implements OnInit {
   categoryId: number;
+  searchString : string;
   cityId: number;
   cuisines : any;
   cuisineParsed: string=''
-  reslist = [];
+  reslist = [{
+    restaurant :{
+      name: '',
+      cuisines:'',
+      location : {
+        address :'',
+        city : ''
+      },
+      user_rating:{
+        aggregate_rating :''
+      }
+    }
+  }];
+
   constructor(private dataService: DataService ,private rlService: RestaurantListService) { }
 
   ngOnInit() {

@@ -31,12 +31,12 @@ export class RestaurantComponent implements OnInit {
     numberOfFavorites:'',
     rating:''
   }
-  foods ={
+  foods =[{
     price: '',
     name : '',
     numberOfFavorites : ''
 
-  }
+  }]
   constructor(private dataService: DataService,
     private restaurantService : RestaurantService
   ) { }
@@ -100,7 +100,8 @@ export class RestaurantComponent implements OnInit {
           }
           this.restaurantService.createOrder(this.user.userId, data, food.foodRecipeId,order).subscribe(msg => {if(msg>0){
             alert("ordered , check orders")
-          }});
+          }
+        else alert("error")});
         }
         
         );

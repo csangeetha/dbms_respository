@@ -30,6 +30,11 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
 import { CategoryComponent } from './category/category.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { WriteReviewComponent } from './write-review/write-review.component';
+import { FilterPipe } from './filter.pipe';
+import { Pipe, PipeTransform } from '@angular/core';
+import { FollowersComponent } from './followers/followers.component';
+import { CreateUsersComponent } from './create-users/create-users.component';
+import { UpdateUsersComponent } from './update-users/update-users.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +58,11 @@ import { WriteReviewComponent } from './write-review/write-review.component';
     RestaurantListComponent,
     CategoryComponent,
     RecipeComponent,
-    WriteReviewComponent
+    WriteReviewComponent,
+    FilterPipe,
+    FollowersComponent,
+    CreateUsersComponent,
+    UpdateUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +75,7 @@ import { WriteReviewComponent } from './write-review/write-review.component';
     NgSelectModule, FormsModule
   ],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports : [FilterPipe]
 })
 export class AppModule { }

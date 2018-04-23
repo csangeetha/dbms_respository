@@ -13,6 +13,7 @@ export class DataService {
   private reslist = new BehaviorSubject<any>([]);
   private restaurant = new BehaviorSubject<any>({});
   private shownRestaurant = new BehaviorSubject<any>({});
+  private toUpdateUser = new BehaviorSubject<any>({});
   currentCuisines=this.selectedCuisines.asObservable();
   currentCityId=this.cityId.asObservable();
   currentCategoryId =this.categoryId.asObservable();
@@ -20,9 +21,13 @@ export class DataService {
   currentRestaurant=this.restaurant.asObservable();
   currentUser=this.user.asObservable();
   currentshownRestaurant = this.shownRestaurant.asObservable();
+  currentToUpdateUser = this.toUpdateUser.asObservable();
 
 
   constructor() { }
+  changeUpdateUser(toUpdateUser: any){
+    this.toUpdateUser.next(toUpdateUser)
+  }
   changeUser(user:any){
     this.user.next(user)
   }

@@ -19,8 +19,41 @@ export class RestaurantListService {
 
   getRestaurantListCL(cityId,categoryId){
 
-return this.http.get('https://developers.zomato.com/api/v2.1/search?entity_id='
+    return this.http.get('https://developers.zomato.com/api/v2.1/search?entity_id='
       +cityId+'&entity_type=city&start=0&count=20&category='+categoryId,this._headers)
+     
+  }
+
+  getRestaurantListCL1(cityId,categoryId){
+
+    return this.http.get('https://developers.zomato.com/api/v2.1/search?entity_id='
+      +cityId+'&entity_type=city&start=20&count=20&category='+categoryId,this._headers)
+     
+  }
+
+  getRestaurantListCL2(cityId,categoryId){
+
+    return this.http.get('https://developers.zomato.com/api/v2.1/search?entity_id='
+      +cityId+'&entity_type=city&start=40&count=20&category='+categoryId,this._headers)
+     
+  }
+
+  getRestaurantListCL3(cityId,categoryId){
+
+    return this.http.get('https://developers.zomato.com/api/v2.1/search?entity_id='
+      +cityId+'&entity_type=city&start=60&count=20&category='+categoryId,this._headers)
+     
+  }
+  getRestaurantListCL4(cityId,categoryId){
+
+    return this.http.get('https://developers.zomato.com/api/v2.1/search?entity_id='
+      +cityId+'&entity_type=city&start=80&count=20&category='+categoryId,this._headers)
+     
+  }
+  getRestaurantListCL5(cityId,categoryId){
+
+    return this.http.get('https://developers.zomato.com/api/v2.1/search?entity_id='
+      +cityId+'&entity_type=city&start=100&count=20&category='+categoryId,this._headers)
      
   }
 

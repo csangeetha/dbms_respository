@@ -10,6 +10,10 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { OrderComponent } from './order/order.component';
 import { ReviewComponent } from './review/review.component';
 import { WriteReviewComponent } from './write-review/write-review.component';
+import { ChefComponent } from './chef/chef.component';
+import { RecipeComponent } from './recipe/recipe.component';
+import { CreateUsersComponent } from './create-users/create-users.component';
+import { UpdateUsersComponent } from './update-users/update-users.component';
 
 const routes: Routes = [
   {
@@ -51,6 +55,22 @@ const routes: Routes = [
 {
   path: 'review-order/:order_id',
   component : WriteReviewComponent
+},
+{
+  path : 'chefs',
+  component : ChefComponent
+},
+{
+  path : 'recipe',
+  component : RecipeComponent
+},
+{
+  path:'create-user',
+  component : CreateUsersComponent
+},
+{
+  path : 'update-user',
+  component : UpdateUsersComponent
 }
 
 ];

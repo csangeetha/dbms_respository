@@ -22,4 +22,9 @@ export class LoginService {
     {"username" : username, "password" : password},this._headers);
   }
 
+  loginAdmin(username: string, password: string){
+    return this.http.post('http://104.156.224.24:8080/CS5200-project-new/rest/restaurant/admin',
+    {"username" : username, "password" : password},this._headers);
+  }
+
 }

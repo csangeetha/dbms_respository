@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './service/home.service';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,12 @@ import { HomeService } from './service/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  userType: any = "customer";
+  user: any ;
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService, private ds : DataService) { }
 
   ngOnInit() {
+    this.ds.currentUser.subscribe(user=> this.user=user)
    
   }
 

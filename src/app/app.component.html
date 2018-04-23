@@ -15,14 +15,36 @@
         <a class="nav-link waves-light hoverable " routerLink='' mdbRippleRadius>Home</a>
       </li>
       <li class="nav-item" *ngIf="user.type=='customer'">
-        <a class="nav-link waves-light hoverable " routerLink='/favorites' mdbRippleRadius>Favorites</a>
+        <a class="nav-link waves-light hoverable " routerLink='/favorites' mdbRippleRadius>Favorite Restaurant</a>
       </li>
       <li class="nav-item" *ngIf="user.type=='customer'">
         <a class="nav-link waves-light hoverable " routerLink='/reviews' mdbRippleRadius>Reviews</a>
       </li>
       <li class="nav-item" *ngIf="user.type=='customer'">
-          <a class="nav-link waves-light hoverable " routerLink='/orders' mdbRippleRadius>Orders</a>
+        <a class="nav-link waves-light hoverable " routerLink='/orders' mdbRippleRadius>Orders</a>
+      </li>
+      <li class="nav-item" *ngIf="user.type=='customer'">
+        <a class="nav-link waves-light hoverable " routerLink='/chefs' mdbRippleRadius>Chefs</a>
+      </li>
+      <li class="nav-item" *ngIf="user.type=='chef'">
+        <a class="nav-link waves-light hoverable " routerLink='/recipe' mdbRippleRadius>Create Recipe</a>
+      </li>
+      <li class="nav-item" *ngIf="user.type=='chef'">
+        <a class="nav-link waves-light hoverable " routerLink='/favorites' mdbRippleRadius>Followers</a>
+      </li>
+      <li class="nav-item" *ngIf="user.type=='owner'">
+        <a class="nav-link waves-light hoverable " routerLink='/favorites' mdbRippleRadius>Followers</a>
+      </li>
+      <li class="nav-item" *ngIf="user.type=='owner'">
+        <a class="nav-link waves-light hoverable " routerLink='/orders' mdbRippleRadius>Orders</a>
+      </li>
+      <li class="nav-item" *ngIf="user.type=='owner'">
+        <a class="nav-link waves-light hoverable " routerLink='/recipe' mdbRippleRadius>Create Restaurant</a>
+      </li>
+      <li class="nav-item" *ngIf="user.type=='admin'">
+          <a class="nav-link waves-light hoverable " routerLink='/create-user' mdbRippleRadius>Create User</a>
         </li>
+
     </ul>
     <ul class="navbar-nav  ml-auto navBarclass">
       <li class="nav-item " *ngIf="user.firstName==''">

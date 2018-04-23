@@ -11,11 +11,20 @@ import {Router} from '@angular/router';
 export class OrderComponent implements OnInit {
   orders:any;
   user: any;
+  resOrders : any;
   constructor(private os:OrderService, private dataService : DataService,private router: Router) { }
 
   ngOnInit() {
     this.dataService.currentUser.subscribe(user=>{this.user=user;
-      this.os.getAllOrders(user.customerId).subscribe(orders => this.orders=orders)
+      console.log(user);
+      
+      if(user.type=='customer'){
+        this.os.getAllOrders(user.customerId).subscribe(orders => this.orders=orders);
+      }
+      if(user.type=='owner'){
+        this.os.getAllOwnerOrders(user.userId).subscribe(orders => this.resOrders=orders)
+      }
+      
     });
     
   }
@@ -24,6 +33,20 @@ export class OrderComponent implements OnInit {
     console.log(orderId);
     this.router.navigate(['/review-order/'+orderId])
     
+  }
+  update(order){
+    
+    var newOrder={
+      orderId: order.orderId,
+      dateOfOrder: order.dateOfOrder,
+      orderTotal: order.orderTotal,
+      paymentType: order.paymentType,
+      status: 'delivered'
+    }
+    console.log(newOrder);
+    this.os.updateOrder(newOrder).subscribe(msg=>{
+      this.os.getAllOwnerOrders(this.user.userId).subscribe(orders => this.resOrders=orders)
+    })
   }
 
 }

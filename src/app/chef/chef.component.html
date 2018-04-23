@@ -1,3 +1,54 @@
-<p style="margin-top: 7%;">
-  chef works!
-</p>
+<div class="container" style="margin-top:7%"> 
+  <div *ngIf="user.type=='customer'">
+<table class="table" >
+  <thead class="thead">
+    <th>
+      Fav #
+    </th>
+    <th>Chef name</th>
+    <th>Email </th>
+    <th>Fav </th>
+  </thead>
+  <tbody class="tbody">
+    <tr *ngFor="let chef of chefs">
+      <td>{{chef.chefId}}</td>
+      <td>{{chef.firstName}}  {{chef.lastName}}</td>
+     
+      <td>{{chef.email}}</td>
+      <td><button class="btn btn-primary" (click)=MakeChefFav(chef.chefId)>Make Fav</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div *ngIf="user.type=='chef'">
+  <h3>All your recipe</h3>
+    <table class="table" >
+      <thead>
+        <th>Recipe #</th>
+        <th>Food Name</th>
+        <th>Ingredients</th>
+        <th>Difficulty Level</th>
+        <th>Cook Time</th>
+        <th>Number Of Favorites</th>
+        <th>Price</th>
+        <th>Delete </th>
+      </thead>
+        <tbody>
+          <tr *ngFor="let recipe of recipes">
+            <td>{{recipe.foodRecipeId}}</td>
+            <td>{{recipe.name}}</td>
+            <td>{{recipe.ingredients}}</td>
+            <td>{{recipe.difficultyLevel}}</td>
+            <td>{{recipe.cookTime}}</td>
+            <td>{{recipe.numberOfFavorites}}</td>
+            <td>{{recipe.price}}</td>
+            <td><button class="btn btn-primary" (click)="deleteRecipe(recipe.foodRecipeId)">Delete Recipe</button></td>
+          </tr>
+
+        </tbody>
+      
+      </table>
+
+</div>
+
+</div>

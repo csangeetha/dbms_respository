@@ -22,17 +22,17 @@ export class RestaurantService {
     }
 
     getAllFood(){
-      return this.http.get('http://104.156.224.24:8080/CS5200-project-new/rest/restaurant/getAllFoodRecipes',this._headers);
+      return this.http.get('http://104.156.224.24:8080/CS5200-project-new/rest/restaurant/getAllFoodRecipes/',this.new_headers);
     }
 
     createRestaurant(restaurant: any){
       console.log(restaurant);
       
-      return this.http.post('http://104.156.224.24:8080/CS5200-project-new/rest/restaurant/restaurantcreation', restaurant, this._headers)
+      return this.http.post('http://104.156.224.24:8080/CS5200-project-new/rest/restaurant/restaurantcreation/17', restaurant, this.new_headers)
     }
 
     createOrder(userId, resId,foodRecipeId,order){
       return this.http.post('http://104.156.224.24:8080/CS5200-project-new/rest/restaurant/createorder?userId='
-      +userId+'&restId='+resId+'&fmId='+foodRecipeId,order,this._headers);
+      +userId+'&restId='+resId+'&fmId='+foodRecipeId,order,this.new_headers);
     }
   }
