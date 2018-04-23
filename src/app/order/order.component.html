@@ -1,0 +1,28 @@
+<div class="container" style="margin-top:7%">
+  <table class="table">
+    <thead class="thead">
+      <th>
+        Order #
+      </th>
+      <th>Order Date</th>
+      <th>Order Status</th>
+      <th>Order total</th>
+      <th> Food</th>
+      <th> Restaurant name</th>
+      <th>Payment Type </th>
+      <th> Review It</th>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let order of orders">
+        <td>{{order.orderId}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.status}}</td>
+        <td>{{order.orderTotal}}</td>
+        <td>{{order.foodName}}</td>
+        <td>{{order.restaurantName}}</td>
+        <td>{{order.paymentType}}</td>
+        <td><button class="btn btn-primary" (click)=writeReview(order.orderId)>Write Review</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

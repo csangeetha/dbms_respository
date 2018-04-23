@@ -1,0 +1,21 @@
+<div class="container" style="margin-top:7%;">
+  <div style="width:300px;">
+    <label style="font-size: 20px;font-weight: 500"> Select State</label>
+    <ng-select [items]="states" bindLabel="name" placeholder="Select State or type in State" 
+    [(ngModel)]="selectedState" (change)="onChangeState()">
+    </ng-select>
+    <p>&nbsp;</p>
+    <label style="font-size: 20px;font-weight: 500">Select City</label>
+    <ng-select [items]="cities" bindLabel="name" placeholder="Select City or type in City" 
+    [(ngModel)]="selectedCity" (change)="onChangeCity()">
+    </ng-select>
+    <p>&nbsp;</p>
+    <label style="font-size: 20px;font-weight: 500">Select Cuisine</label>
+    <ng-select [items]="cuisines" bindLabel="cuisine.cuisine_name" multiple="true" placeholder="Select Cuisines or type in Cuisines" 
+    [(ngModel)]="selectedCuisine" (change)="onChangeCuisine()">
+    </ng-select>
+    <p>&nbsp;</p>
+    <button class="btn btn-success" id="submitSelections" (click)="showResturants()" routerLink='restaurants'>Let's see some food hubs</button>
+  </div>
+
+</div>

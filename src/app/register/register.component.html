@@ -1,0 +1,50 @@
+<div style="margin-top:7%">
+    <div class="card"  style="width:500px;margin-left:25%;">
+
+        <div class="card-body mx-4">
+    <form (ngSubmit)="onSubmit()">
+        <p class="h4 text-center mb-4">Sign up</p>
+    
+        <!-- Material input text -->
+        <div class="md-form">
+            <i class="fa fa-user prefix grey-text"></i>
+            <input required  name="firstName" [(ngModel)]="data.firstName"type="text" id="materialFormRegisterNameEx" placeholder="Name" class="form-control">
+            <label for="materialFormRegisterNameEx"></label>
+        </div>
+        <div class="md-form">
+            <i class="fa fa-user prefix grey-text"></i>
+            <select required name="type" [(ngModel)]="data.type" class="form-control" id="type" required style="width:300px;margin-left:100px;vertical-align: text-bottom;margin-top: 20px;">
+                <option *ngFor="let type of types" [value]="type">{{type}}</option>
+            </select>
+            <label for="type">Type</label>
+        </div>
+    
+        <!-- Material input email -->
+        <div class="md-form">
+            <i class="fa fa-envelope prefix grey-text"></i>
+            <input name="email" [(ngModel)]="data.email" type="email" id="materialFormRegisterEmailEx" placeholder="email" class="form-control" required>
+            <label for="materialFormRegisterEmailEx"></label>
+        </div>
+    
+        <!-- Material input email -->
+        <div class="md-form">
+            <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+            <input name="username" [(ngModel)]="data.username" type="text" id="materialFormRegisterUsername" placeholder="Username" name="username" class="form-control" required minlength="4">
+            <label for="materialFormRegisterConfirmEx"></label>
+        </div>
+        
+    
+        <!-- Material input password -->
+        <div class="md-form">
+            <i class="fa fa-lock prefix grey-text"></i>
+            <input name="password" [(ngModel)]="data.password" type="password" id="materialFormRegisterPasswordEx" placeholder="Password" class="form-control" required>
+            <label for="materialFormRegisterPasswordEx"></label>
+        </div>
+    
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" type="submit">Register</button>
+        </div>
+    </form>
+    </div>
+    </div>
+</div>

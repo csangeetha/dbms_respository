@@ -1,0 +1,36 @@
+<div class="container" style="margin-top: 7%;">
+    
+    <div class="jumbotron">
+      <div style="margin-right:0;margin-left:auto;width:100px;height:100px;background-color: green; color: white">
+        <h1 style="padding: 10px;font-size: 60px; font-weight: 500;">{{restaurant.user_rating.aggregate_rating}}</h1>
+      </div>
+        <h1 class="display-4">{{restaurant.name}}</h1>
+        <p class="lead">{{restaurant.location.address}}</p>
+        <hr class="my-4">
+        <a [href]=restaurant.url>{{restaurant.url}}</a>
+        <p>{{restaurant.cuisines}}</p>
+      
+      <div style="font-size:3em; color:Tomato" (click)="clickOnFav()" *ngIf="!fav">
+          <i  class="far fa-heart"></i>
+        </div>
+        <div style="font-size:3em; color:Tomato" (click)="clickOnUnFav()" *ngIf="fav">
+            <i  class="fas  fa-heart"></i>
+          </div>
+          <table class="table">
+            <thead>
+              <th>Food Name</th>
+              <th>number of favorites</th>
+              <th>Price</th>
+              <th>Order</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let food of foods">
+                <td>{{food.name}}</td>
+                <td>{{food.numberOfFavorites}}</td>
+                <td>{{food.price}}</td>
+                <td><button class="btn btn-primary" (click)="orderFood(food)">Order</button></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+</div>

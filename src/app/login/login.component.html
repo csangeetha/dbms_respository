@@ -1,0 +1,49 @@
+<div style="margin-top:7%;">
+  <div style="width:500px;margin-left:25%;">
+    <section class="form-elegant">
+
+      <!--Form without header-->
+      <div class="card">
+
+        <div class="card-body mx-4">
+          <form (ngSubmit)="onSubmit()">
+            <p class="h4 text-center mb-4">Sign in</p>
+
+            <!-- Material input email -->
+            <div class="md-form">
+              <i class="fa fa-envelope prefix grey-text"></i>
+              <input type="text" id="materialFormLoginEmailEx" class="form-control" placeholder="Username"  name="username" [(ngModel)]="data.username">
+              <label for="materialFormLoginEmailEx"></label>
+            </div>
+
+            <!-- Material input password -->
+            <div class="md-form">
+              <i class="fa fa-lock prefix grey-text"></i>
+              <input type="password" id="materialFormLoginPasswordEx" class="form-control" placeholder="Password" name="password"  [(ngModel)]="data.password">
+              <label style="margin-left: 10%" for="materialFormLoginPasswordEx"></label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-user prefix grey-text"></i>
+                <select class="form-control" id="type" [(ngModel)]="data.type" name="type" required style="width:200px;margin-left:150px;vertical-align: text-bottom;margin-top: 20px;">
+                    
+                  <option *ngFor="let type of types" [value]="type" >{{type}}</option>
+                </select>
+                <label for="type">Login as:</label>
+            </div>
+        
+
+            <div class="text-center mt-4">
+              <button class="btn btn-default" type="submit">Login</button>
+            </div>
+          </form>
+          <div class="modal-footer mx-5 pt-3 mb-1" style="margin:4%">
+            <p class="font-small grey-text d-flex justify-content-end">Not a member?
+              <a class="blue-text ml-1" [routerLink]='["/register"]'> Sign Up</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

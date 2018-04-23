@@ -1,0 +1,23 @@
+<div class="container" style="margin-top:7%">
+    <table class="table">
+      <thead class="thead">
+        <th>
+          Fav #
+        </th>
+        <th>Restaurant name</th>
+        <th>Rating </th>
+        <th>number of favorites</th>
+        <th>Remove </th>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let fav of favs">
+          <td>{{fav.restaurantId}}</td>
+          <td>{{fav.restaurantName}}</td>
+         
+          <td>{{fav.rating}}</td>
+          <td>{{fav.numberOfFavorites}}</td>
+          <td><button class="btn btn-primary" (click)=deleteFav(fav.id)>Delete Fav</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

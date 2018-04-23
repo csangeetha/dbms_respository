@@ -1,0 +1,22 @@
+<div style="margin-top:7%;">
+  <table class="table">
+    <thead>
+      <th>
+        Restaurant Name
+      </th>
+      <th>Address</th>
+      <th>Speciality</th>
+      <th>Rating</th>
+      <th>Select</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of reslist">
+        <td>{{r.restaurant.name}}</td>
+        <td>{{r.restaurant.location.address}} , {{r.restaurant.location.city}}</td>
+        <td>{{r.restaurant.cuisines}}</td>
+        <td>{{r.restaurant.user_rating.aggregate_rating}}</td>
+        <td><button class="btn btn-primary"  style="color: white" (click)="storeRestaurant(r.restaurant)" routerLink='/restaurant/{{r.restaurant.id}}'>Pick me!</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

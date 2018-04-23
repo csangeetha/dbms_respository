@@ -1,0 +1,15 @@
+<div *ngIf="userType=='customer'">
+  <app-customer></app-customer>
+</div>
+<div *ngIf="userType=='anonymous'">
+<app-anonymous></app-anonymous>
+</div>
+<div *ngIf="userType=='chef'">
+<app-chef></app-chef>
+</div>
+<div *ngIf="userType=='owner'">
+<app-owner></app-owner>
+</div>
+<div *ngIf="userType=='admin'">
+<app-admin></app-admin>
+</div>
