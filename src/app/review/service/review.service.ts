@@ -20,4 +20,7 @@ export class ReviewService {
   deleteReview(reviewId:number){
     return this.http.post('http://104.156.224.24:8080/CS5200-project-new/rest/restaurant/deleterateReview/'+reviewId,this._headers)
   }
+  getAllReviewsAsAdmin(){
+    return this.http.get('http://104.156.224.24:8080/CS5200-project-new/rest/restaurant/getAllReviewsAsAdmin/',this._headers)
+  }
 }

@@ -34,10 +34,23 @@ export class UpdateUsersComponent implements OnInit {
   }
 onSubmit(){
   console.log(this.data);
-  this.updateUserService.updateUser(this.data).subscribe(msg=>{ console.log(msg)
+  var userNew ={
+    userId : this.data.userId,
+    firstName : this.data.firstName,
+    lastName :this.data.lastName,
+    type : this.data.type,
+    email : this.data.email,
+    dob : this.data.dob,
+    username : this.data.username,
+    password : this.data.password
+  }
+  this.updateUserService.updateUser(userNew).subscribe(msg=>{ console.log(msg)
     if(msg==1){
       alert("update success");
+      if(this.user.type=='admin')
       this.router.navigate(['']);
+      else
+      this.router.navigate(['profile'])
     } 
   });
   

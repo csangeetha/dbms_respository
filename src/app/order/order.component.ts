@@ -12,6 +12,7 @@ export class OrderComponent implements OnInit {
   orders:any;
   user: any;
   resOrders : any;
+  adminOrders : any;
   constructor(private os:OrderService, private dataService : DataService,private router: Router) { }
 
   ngOnInit() {
@@ -23,6 +24,9 @@ export class OrderComponent implements OnInit {
       }
       if(user.type=='owner'){
         this.os.getAllOwnerOrders(user.userId).subscribe(orders => this.resOrders=orders)
+      }
+      if(user.type=='admin'){
+        this.os.getAdminOrders().subscribe(orders => this.adminOrders=orders)
       }
       
     });
@@ -47,6 +51,28 @@ export class OrderComponent implements OnInit {
     this.os.updateOrder(newOrder).subscribe(msg=>{
       this.os.getAllOwnerOrders(this.user.userId).subscribe(orders => this.resOrders=orders)
     })
+  }
+
+  updateOrder(order){
+    this.dataService.changeUpdateOrder(order);
+    this.router.navigate(['update-order'])
+
+  }
+
+  deleteOrder(orderId){
+    console.log(orderId);
+    this.os.deleteOrder(orderId).subscribe(msg => {console.log(msg)
+      if(this.user.type=='customer'){
+        this.os.getAllOrders(this.user.customerId).subscribe(orders => this.orders=orders);
+      }
+      if(this.user.type=='owner'){
+        this.os.getAllOwnerOrders(this.user.userId).subscribe(orders => this.resOrders=orders)
+      }
+      if(this.user.type=='admin'){
+        this.os.getAdminOrders().subscribe(orders => this.adminOrders=orders)
+      }
+      
+    });
   }
 
 }

@@ -35,6 +35,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { FollowersComponent } from './followers/followers.component';
 import { CreateUsersComponent } from './create-users/create-users.component';
 import { UpdateUsersComponent } from './update-users/update-users.component';
+import { UpdateReviewsComponent } from './update-reviews/update-reviews.component';
+import { UpdateOrderComponent } from './update-order/update-order.component';
+import { UpdatePhoneComponent } from './update-phone/update-phone.component';
+import { UpdateAddressComponent } from './update-address/update-address.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +66,11 @@ import { UpdateUsersComponent } from './update-users/update-users.component';
     FilterPipe,
     FollowersComponent,
     CreateUsersComponent,
-    UpdateUsersComponent
+    UpdateUsersComponent,
+    UpdateReviewsComponent,
+    UpdateOrderComponent,
+    UpdatePhoneComponent,
+    UpdateAddressComponent
   ],
   imports: [
     BrowserModule,

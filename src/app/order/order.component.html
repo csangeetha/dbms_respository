@@ -27,6 +27,38 @@
     </tbody>
   </table>
   </div>
+  <div *ngIf="user.type=='admin'">
+    <table class="table">
+      <thead class="thead">
+        <th>
+          Order #
+        </th>
+        <th>Order Date</th>
+        <th>Order Status</th>
+        <th>Order total</th>
+        <th> Food</th>
+        <th> Restaurant name</th>
+        <th>Payment Type </th>
+        <th> Review It</th>
+        <th> Update</th>
+        <th> Delete</th>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let order of adminOrders">
+          <td>{{order.orderId}}</td>
+          <td>{{order.orderDate}}</td>
+          <td>{{order.status}}</td>
+          <td>{{order.orderTotal}}</td>
+          <td>{{order.foodName}}</td>
+          <td>{{order.restaurantName}}</td>
+          <td>{{order.paymentType}}</td>
+          <td><button class="btn btn-primary" (click)=writeReview(order.orderId)>Write Review</button></td>
+          <td><button class="btn btn-success" (click)=updateOrder(order)>Update Order </button></td>
+          <td><button class="btn btn-danger" (click)=deleteOrder(order.orderId)>Delete Order </button></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
   <div *ngIf="user.type=='owner'">
       <table class="table">
         <thead class="thead">

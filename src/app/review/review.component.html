@@ -1,4 +1,5 @@
 <div class="container" style="margin-top:7%">
+    <div *ngIf="user.type=='customer'">
     <table class="table">
       <thead class="thead">
         <th>
@@ -8,6 +9,7 @@
         <th>Review</th>
         <th>Rate</th>
         <th> Order #</th>
+        <th>Delete</th>
       </thead>
       <tbody class="tbody">
         <tr *ngFor="let review of reviews">
@@ -16,8 +18,35 @@
           <td>{{review.review}}</td>
           <td>{{review.rating}}</td>
           <td>{{review.order.orderId}}</td> 
-          <td><button class="btn btn-primary" (click)="deleteReview(review.rateAndReviewId)">Delete Review</button></td>
+          <td><button class="btn btn-danger" (click)="deleteReview(review.rateAndReviewId)">Delete Review</button></td>
         </tr>
       </tbody>
     </table>
+  </div>
+  <div *ngIf="user.type=='admin'">
+      <table class="table">
+        <thead class="thead">
+          <th>
+            Review #
+          </th>
+          <th>Title</th>
+          <th>Review</th>
+          <th>Rate</th>
+          <th> Order #</th>
+          <th>Delete</th>
+          <th> Update</th>
+        </thead>
+        <tbody class="tbody">
+          <tr *ngFor="let review of adminReviews">
+            <td>{{review.rateAndReviewId}}</td>
+            <td>{{review.title}}</td>
+            <td>{{review.review}}</td>
+            <td>{{review.rating}}</td>
+            <td>{{review.order.orderId}}</td> 
+            <td><button class="btn btn-danger" (click)="deleteReview(review.rateAndReviewId)">Delete Review</button></td>
+            <td><button class="btn btn-success" (click)="updateReview(review)">Update Review</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>

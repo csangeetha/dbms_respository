@@ -1,0 +1,31 @@
+<div class="container" style="margin-top: 7%">
+    <div class="card"  style="width:900px;margin-left:10%;">
+
+        <div class="card-body mx-4">
+    <form (ngSubmit)="onSubmit()">
+        <p class="h4 text-center mb-4">Update Phone</p>
+    
+        <!-- Material input text -->
+    
+        <div class="md-form">
+            <i class="fa fa-sticky-note prefix grey-text"></i>
+            <input required  name="areacode" [(ngModel)]="data.areacode" type="number" id="materialFormRegisterareacodeEx" placeholder="area code" class="form-control">
+            <label for="materialFormRegisterareacodeEx"></label>
+        </div>
+
+
+        <div class="md-form">
+            <i class="fa fa-sticky-note prefix grey-text"></i>
+            <input required  name="phoneNumber" [(ngModel)]="data.phoneNumber" type="number" id="materialFormRegisterphoneNumberEx" placeholder="phone number" class="form-control">
+            <label for="materialFormRegisterphoneNumberEx"></label>
+        </div>
+        
+    
+        <!-- Material input password -->
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" type="submit">Update Phone</button>
+        </div>
+    </form>
+    </div>
+    </div>
+</div>

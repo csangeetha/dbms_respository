@@ -14,6 +14,11 @@ import { ChefComponent } from './chef/chef.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { CreateUsersComponent } from './create-users/create-users.component';
 import { UpdateUsersComponent } from './update-users/update-users.component';
+import { UpdateOrderComponent } from './update-order/update-order.component';
+import { UpdateReviewsComponent } from './update-reviews/update-reviews.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UpdateAddressComponent } from './update-address/update-address.component';
+import { UpdatePhoneComponent } from './update-phone/update-phone.component';
 
 const routes: Routes = [
   {
@@ -71,6 +76,26 @@ const routes: Routes = [
 {
   path : 'update-user',
   component : UpdateUsersComponent
+},
+{
+  path : 'update-review',
+  component : UpdateReviewsComponent
+},
+{
+  path : 'update-order',
+  component : UpdateOrderComponent
+},
+{
+  path : 'profile',
+  component : ProfileComponent
+},
+{
+  path : 'update-address',
+  component : UpdateAddressComponent
+},
+{
+  path : 'update-phone',
+  component : UpdatePhoneComponent
 }
 
 ];

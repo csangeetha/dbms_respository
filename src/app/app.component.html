@@ -14,13 +14,16 @@
       <li class="nav-item">
         <a class="nav-link waves-light hoverable " routerLink='' mdbRippleRadius>Home</a>
       </li>
+      <li class="nav-item" *ngIf="user.type=='admin'">
+        <a class="nav-link waves-light hoverable " routerLink='/create-user' mdbRippleRadius>Create User</a>
+      </li>
       <li class="nav-item" *ngIf="user.type=='customer'">
         <a class="nav-link waves-light hoverable " routerLink='/favorites' mdbRippleRadius>Favorite Restaurant</a>
       </li>
-      <li class="nav-item" *ngIf="user.type=='customer'">
+      <li class="nav-item" *ngIf="user.type=='customer'|| user.type=='admin' ">
         <a class="nav-link waves-light hoverable " routerLink='/reviews' mdbRippleRadius>Reviews</a>
       </li>
-      <li class="nav-item" *ngIf="user.type=='customer'">
+      <li class="nav-item" *ngIf="user.type=='customer'|| user.type=='admin'">
         <a class="nav-link waves-light hoverable " routerLink='/orders' mdbRippleRadius>Orders</a>
       </li>
       <li class="nav-item" *ngIf="user.type=='customer'">
@@ -41,9 +44,7 @@
       <li class="nav-item" *ngIf="user.type=='owner'">
         <a class="nav-link waves-light hoverable " routerLink='/recipe' mdbRippleRadius>Create Restaurant</a>
       </li>
-      <li class="nav-item" *ngIf="user.type=='admin'">
-          <a class="nav-link waves-light hoverable " routerLink='/create-user' mdbRippleRadius>Create User</a>
-        </li>
+
 
     </ul>
     <ul class="navbar-nav  ml-auto navBarclass">
@@ -51,8 +52,9 @@
         <a class="nav-link waves-light hoverable" routerLink='login' mdbRippleRadius>Login</a>
       </li>
       <li class="nav-item " *ngIf="user.firstName!=''">
-        <a class="nav-link waves-light hoverable" routerLink='login' mdbRippleRadius>{{user.firstName}}</a>
+        <a class="nav-link waves-light hoverable" routerLink='profile' mdbRippleRadius>Welcome, {{user.firstName}}</a>
       </li>
+
       <li class="nav-item " *ngIf="user.firstName!=''">
         <button class="btn btn-danger" (click)="logout()" mdbRippleRadius>Logout</button>
       </li>

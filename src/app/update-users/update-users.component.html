@@ -1,5 +1,5 @@
 <div class="container" style="margin-top: 7%">
-    <div class="card"  style="width:900px;margin-left:10%;" *ngIf="user.type=='admin'">
+    <div class="card"  style="width:900px;margin-left:10%;" *ngIf="user.type!=''">
 
         <div class="card-body mx-4">
     <form (ngSubmit)="onSubmit()">

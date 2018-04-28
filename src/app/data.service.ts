@@ -14,6 +14,11 @@ export class DataService {
   private restaurant = new BehaviorSubject<any>({});
   private shownRestaurant = new BehaviorSubject<any>({});
   private toUpdateUser = new BehaviorSubject<any>({});
+  private toUpdateReview = new BehaviorSubject<any>({});
+  private toUpdateOrder = new BehaviorSubject<any>({});
+  private toUpdateAddress = new BehaviorSubject<any>({});
+  private toUpdatePhone = new BehaviorSubject<any>({});
+
   currentCuisines=this.selectedCuisines.asObservable();
   currentCityId=this.cityId.asObservable();
   currentCategoryId =this.categoryId.asObservable();
@@ -22,12 +27,33 @@ export class DataService {
   currentUser=this.user.asObservable();
   currentshownRestaurant = this.shownRestaurant.asObservable();
   currentToUpdateUser = this.toUpdateUser.asObservable();
+  currentToUpdateReview =this.toUpdateReview.asObservable();
+  currentToUpdateOrder = this.toUpdateOrder.asObservable();
+  currentToUpdateAddress = this.toUpdateAddress.asObservable();
+  currentToUpdatePhone = this.toUpdatePhone.asObservable();
 
 
   constructor() { }
+  changeUpdateAddress(toUpdateAddress: any){
+    this.toUpdateAddress.next(toUpdateAddress)
+  }
+
+  changeUpdatePhone(toUpdatePhone: any){
+    this.toUpdatePhone.next(toUpdatePhone)
+  }
+
   changeUpdateUser(toUpdateUser: any){
     this.toUpdateUser.next(toUpdateUser)
   }
+
+  changeUpdateReview(toUpdateReview: any){
+    this.toUpdateReview.next(toUpdateReview)
+  }
+
+  changeUpdateOrder(toUpdateOrder: any){
+    this.toUpdateOrder.next(toUpdateOrder)
+  }
+
   changeUser(user:any){
     this.user.next(user)
   }

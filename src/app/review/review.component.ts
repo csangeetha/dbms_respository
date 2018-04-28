@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewService } from './service/review.service';
 import {DataService} from '../data.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-review',
@@ -11,23 +12,40 @@ import {DataService} from '../data.service';
 export class ReviewComponent implements OnInit {
 reviews: any;
 user:any;
-  constructor(private reviewService: ReviewService, private dataService: DataService) { }
+adminReviews:any;
+  constructor(private reviewService: ReviewService, private dataService: DataService,private router : Router) { }
 
   ngOnInit() {
     this.dataService.currentUser.subscribe(user => {this.user=user;
-      this.getAllReviews(user);
+      if(user.type=='customer'){
+      this.getReviews(user);}
+      if(user.type=='admin'){
+        this.getAllReviews();
+      }
     })
   }
 
-  getAllReviews(user){
+  getReviews(user){
     this.reviewService.getAllReviews(user.userId).subscribe(reviews => this.reviews=reviews)
+  }
+  getAllReviews(){
+    this.reviewService.getAllReviewsAsAdmin().subscribe(reviews => this.adminReviews=reviews)
   }
 
   deleteReview(reviewId){
     console.log(reviewId);
     this.reviewService.deleteReview(reviewId).subscribe(msg => {console.log(msg)
-      this.getAllReviews(this.user);
+       if(this.user.type=='customer'){
+      this.getReviews(this.user);}
+      if(this.user.type=='admin'){
+        this.getAllReviews();
+      }
     });
+  }
+
+  updateReview(review){
+    this.dataService.changeUpdateReview(review);
+    this.router.navigate(['update-review'])
   }
 
 }
